@@ -17,6 +17,6 @@ public class ConducteurController {
         Conducteur conducteur= new Conducteur();
         conducteur= conducteurService.getById(3L);
         model.addAttribute("driver", conducteur);
-        return "layouts/dashboard";
+        return "layouts/index";
     }
 }
