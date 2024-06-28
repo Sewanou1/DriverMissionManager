@@ -6,6 +6,8 @@ import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @Data
 public class ConducteurServiceImple implements ConducteurService{
@@ -15,5 +17,15 @@ public class ConducteurServiceImple implements ConducteurService{
     @Override
     public Conducteur getById(Long idConducteur) {
         return conducteurRepository.findById(idConducteur).get();
+    }
+
+    @Override
+    public List<Conducteur> getAll(){
+        return conducteurRepository.findAll();
+    }
+
+    @Override
+    public Long nbreConducteur(){
+        return conducteurRepository.count();
     }
 }
