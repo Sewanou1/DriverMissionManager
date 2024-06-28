@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class DashboardController {
-    @GetMapping("/dashboard")
+    @GetMapping("/")
     public String welcome(Model model){
         return "layouts/dashboard";
     }
