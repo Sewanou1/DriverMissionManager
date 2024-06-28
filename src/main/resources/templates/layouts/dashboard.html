@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/index}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Mission Manager</title>
 
 </head>
-<body >
-<div class="content-wrapper" layout:fragment="content">
+<body>
+<div layout:fragment="content">
         <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
