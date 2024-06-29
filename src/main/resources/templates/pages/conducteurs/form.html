@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:fragment="form">
+    <div class="row">
+        <div class="form-group col-6">
+            <label for="intitule">Nom du conducteur</label>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                </div>
+                <input required type="text" name="nom" class="form-control" id=""
+                       placeholder="Ex : TOTO" value = "" >
+            </div>
+        </div>
+
+        <div class="form-group col-6">
+            <label for="intitule">Prénom du conducteur</label>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                </div>
+                <input required type="text" name="prenom" class="form-control" id=""
+                       placeholder="Ex : Toto" value = "" >
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-6">
+            <label>Date de naissance:</label>
+            <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                <input type="text" name="dateNaissance" class="form-control datetimepicker-input" data-target="#reservationdate"
+                       value = "" >
+                <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group col-6">
+            <label for="intitule">Numéro du permis</label>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                </div>
+                <input required type="text" name="numPermis" class="form-control" id=""
+                       placeholder="Ex : XXX"
+                       value = "" >
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

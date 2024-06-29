@@ -11,13 +11,13 @@
     <div class="card">
         <div class="card-header d-flex justify-content-between">
             <h3 class="card-title mr-auto p-2"  th:text="${title}"></h3>
-            <a href="" class="btn btn-primary p-2">
+            <a th:href="@{/conducteur/create}" class="btn btn-primary p-2">
                 <i class="fas fa-plus mr-1"></i>Ajouter
             </a>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
-            <table id="example1" class="table table-bordered table-striped">
+            <table id="example1" class="table table-bordered table-striped mb-2">
                 <thead>
                 <tr>
                     <th>#</th>
@@ -27,22 +27,27 @@
                     <th>Action</th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                <tbody >
+                <tr th:each="conducteur, iterStat : ${conducteurs}">
+                    <td th:text="${iterStat.index + 1}"></td>
+                    <td th:text="${conducteur.nom}"></td>
+                    <td th:text="${conducteur.prenom}"></td>
+                    <td th:text="${conducteur.numeroPermis}"></td>
+
                     <td class="text-center py-0 align-middle">
                         <div class="btn-group btn-group-sm">
-                            <a href="" class="btn btn-primary mr-2 ml-2"><i class="fas fa-pen"></i></a>
-                            <form method="POST" action="" class="delete">
-                                <button class="btn btn-danger ">
+                            <a href="" class="btn btn-primary mr-2 ml-2">
+                                <i class="fas fa-pen"></i>
+                            </a>
+                            <form method="POST" th:action="@{#}" class="delete">
+                                <input type="hidden" name="_method" value="DELETE" />
+                                <button type="submit" class="btn btn-danger">
                                     <i class="fas fa-trash"></i>
                                 </button>
                             </form>
                         </div>
                     </td>
+
                 </tr>
                 </tbody>
             </table>
