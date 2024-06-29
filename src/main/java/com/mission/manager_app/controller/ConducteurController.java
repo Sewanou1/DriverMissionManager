@@ -25,7 +25,7 @@ public class ConducteurController {
         return "pages/conducteurs/index";
     }
 
-    @GetMapping("/conducteur/create")
+    @GetMapping("/create")
     public String create(Model model) {
         String title= "Nouveau conducteur";
         model.addAttribute("title",title);
