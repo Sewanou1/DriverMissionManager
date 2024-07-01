@@ -5,6 +5,7 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.Set;
 
 @Data
 @Entity
@@ -28,5 +29,8 @@ public class Conducteur {
 
     @Column(name = "numPermis", nullable = false, length = 50)
     private String numeroPermis;
+
+    @OneToMany(mappedBy = "conducteur", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Mission> missions;
 
 }

@@ -7,8 +7,8 @@
 <body>
 <aside class="main-sidebar sidebar-dark-primary elevation-4" th:fragment="sidebar">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-        <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+    <a th:href="@{/}" class="brand-link">
+        <img th:src="@{dist/img/AdminLTELogo.png}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">Mission Manager</span>
     </a>
     <!-- Sidebar -->
@@ -16,10 +16,10 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                <img th:src="@{dist/img/user2-160x160.jpg}" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Administrateur</a>
+                <a th:href="@{/}" class="d-block">Administrateur</a>
             </div>
         </div>
 
@@ -47,7 +47,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="pages/widgets.html" class="nav-link">
+                    <a th:href="@{/missions}"
+                       th:class="${currentUrl == '/missions' ? 'active nav-link' : 'nav-link'}">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             Missions
@@ -63,8 +64,10 @@
                         </p>
                     </a>
                 </li>
+
                 <li class="nav-item">
-                    <a href="pages/kanban.html" class="nav-link">
+                    <a th:href="@{/vehicules}"
+                       th:class="${currentUrl == '/vehicules' ? 'active nav-link' : 'nav-link'}">
                         <i class="nav-icon fas fa-car"></i>
                         <p>
                             Véhicules

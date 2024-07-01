@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/index}">
+<head>
+    <meta charset="UTF-8">
+    <title>Véhicules</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="card">
+        <div class="card-header d-flex justify-content-between">
+            <h3 class="card-title mr-auto p-2">Titre</h3>
+            <a th:href="@{/vehicules/create}" class="btn btn-primary p-2">
+                <i class="fas fa-plus mr-1"></i>Ajouter
+            </a>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Marque</th>
+                    <th>Modele</th>
+                    <th>Année</th>
+                    <th>Numero Immatriculation</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="vehicule, iterStat : ${vehicules}">
+                    <td th:text="${iterStat.index + 1}"></td>
+                    <td th:text="${vehicule.marque}"></td>
+                    <td th:text="${vehicule.modele}"></td>
+                    <td th:text="${vehicule.annee}"></td>
+                    <td th:text="${vehicule.numeroImmatriculation}"></td>
+                    <td class="text-center py-0 align-middle">
+                        <div class="btn-group btn-group-sm">
+                            <a href="" class="btn btn-primary mr-2 ml-2"><i class="fas fa-pen"></i></a>
+                            <form method="POST" action="" class="delete">
+                                <button class="btn btn-danger ">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <!-- /.card-body -->
+    </div>
+</div>
+</body>
+</html>

@@ -4,7 +4,7 @@
       layout:decorate="~{layouts/index}">
 <head>
     <meta charset="UTF-8">
-    <title>Nouveau conducteur</title>
+    <title>Nouvelle mission</title>
     <link rel="stylesheet" href="@{/plugins/select2/css/select2.min.css}">
     <link rel="stylesheet" href="@{/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css}">
 
@@ -24,11 +24,12 @@
 </head>
 <body>
 <div layout:fragment="content">
+
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 th:text="${title}"></h1>
+                    <h1 th:text="${title}"> </h1>
                 </div>
             </div>
         </div>
@@ -39,13 +40,14 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card card-primary">
-                        <form id="quickForm" method="post" action=""
-                              enctype="multipart/form-data">
+                        <form id="quickForm" th:action="@{/missions/create}"
+                              method="post" th:object="${mission}" enctype="multipart/form-data">
+
                             <div class="card-body">
-                                <span th:replace="pages/conducteurs/form :: form"></span>
+                                <span th:replace="pages/missions/form :: form"></span>
                             </div>
                             <div class="card-footer">
-                                <a th:href="@{/conducteur}">
+                                <a th:href="@{/missions}">
                                     <button type="button" class="btn btn-danger">
                                         Annuler
                                     </button>
@@ -59,7 +61,6 @@
                 <div class="col-md-6">
 
                 </div>
-                <!--/.col (right) -->
             </div>
         </div>
     </section>

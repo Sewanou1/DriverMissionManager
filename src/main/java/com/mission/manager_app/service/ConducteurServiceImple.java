@@ -20,6 +20,7 @@ public class ConducteurServiceImple implements ConducteurService{
     }
 
     @Override
+
     public List<Conducteur> getAll(){
         return conducteurRepository.findAll();
     }

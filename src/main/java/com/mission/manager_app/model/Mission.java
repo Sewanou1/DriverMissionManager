@@ -9,32 +9,35 @@ import java.util.Date;
 
 @Entity
 @Data
-@Table(name = "Missions")
+@Table(name = "missions")
 public class Mission {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id")
     private Long id;
 
-    @Column(name = "DateDepart", nullable = false)
+    @Column(name = "libelle", nullable = false,length = 100)
+    private String libelle;
+
+    @Column(name = "date_depart", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date dateDepart;
 
-    @Column(name = "DateArrivee", nullable = false)
+    @Column(name = "date_arrivee", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date dateArrivee;
 
-    @Column(name = "LieuDepart", nullable = false, length = 100)
+    @Column(name = "lieu_depart", nullable = false, length = 100)
     private String lieuDepart;
 
-    @Column(name = "LieuArrivee", nullable = false, length = 100)
+    @Column(name = "lieu_arrivee", nullable = false, length = 100)
     private String lieuArrivee;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "IdConducteurMission", nullable = false)
+    @JoinColumn(name = "id_conducteur_mission ", nullable = false)
     private Conducteur conducteur;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "IdVehiculeMission", nullable = false)
+    @JoinColumn(name = "id_vehicule_mission ", nullable = false)
     private Vehicule vehicule;
 }

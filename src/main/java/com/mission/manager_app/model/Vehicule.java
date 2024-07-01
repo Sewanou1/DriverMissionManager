@@ -5,6 +5,8 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.Set;
+
 @Data
 @Entity
 @Table(name = "cars")
@@ -24,7 +26,9 @@ public class Vehicule {
     @Column(name = "annee", nullable = false)
     private Integer annee;
 
-    @Column(name = "numeroImmatriculation", nullable = false, length = 255)
+    @Column(name = "num_immatriculation", nullable = false, length = 255)
     private String numeroImmatriculation;
 
+    @OneToMany(mappedBy = "vehicule", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Mission> missions;
 }

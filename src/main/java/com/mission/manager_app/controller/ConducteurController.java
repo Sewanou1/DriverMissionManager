@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -32,9 +33,9 @@ public class ConducteurController {
         return "pages/conducteurs/create";
     }
 
-    /*@GetMapping("/edit/{id}")
+   /* @GetMapping("/edit/{id}")
     public String editConducteur(@PathVariable Long id, Model model) {
-        Conducteur driver = conducteurService.getDriverById(id);
+        Conducteur driver = conducteurService.findById(id);
         model.addAttribute("driver", driver);
         return "conducteurs/edit";
     }
