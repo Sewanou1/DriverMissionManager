@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -20,17 +21,15 @@ public class Mission {
     private String libelle;
 
     @Column(name = "date_depart", nullable = false)
-    @Temporal(TemporalType.DATE)
-    private Date dateDepart;
+    private LocalDate dateDepart;
 
     @Column(name = "date_arrivee", nullable = false)
-    @Temporal(TemporalType.DATE)
-    private Date dateArrivee;
+    private LocalDate dateArrivee;
 
     @Column(name = "lieu_depart", nullable = false, length = 100)
     private String lieuDepart;
 
-    @Column(name = "lieu_arrivee", nullable = false, length = 100)
+    @Column(name = "lieu_arrivee", nullable = true, length = 100)
     private String lieuArrivee;
 
     @ManyToOne(fetch = FetchType.LAZY)

@@ -45,15 +45,15 @@
 
         <div class="form-group col-4">
             <label>Conducteur</label>
-            <select class="form-control select2" th:field="*{conducteur}" >
-                <option th:each="conducteur : ${conducteurs}" th:value="${conducteur}" th:text="${conducteur.nom + ' ' + conducteur.prenom}"></option>
+            <select class="form-control select2" th:field="*{conducteur.idConducteur}" >
+                <option th:each="conducteur : ${conducteurs}" th:value="${conducteur.idConducteur}" th:text="${conducteur.nom + ' ' + conducteur.prenom}"></option>
             </select>
         </div>
 
         <div class="form-group col-4">
             <label>Véhicule</label>
-            <select class="form-control select2" th:field="*{vehicule}">
-                <option  th:each="vehicule : ${vehicules}" th:value="${vehicule}" th:text="${vehicule.marque+ ' ' + vehicule.modele+ ' ' + vehicule.annee}"></option>
+            <select class="form-control select2" th:field="*{vehicule.id}">
+                <option  th:each="vehicule : ${vehicules}" th:value="${vehicule.id}" th:text="${vehicule.marque+ ' ' + vehicule.modele+ ' ' + vehicule.annee}"></option>
             </select>
         </div>
 
@@ -61,26 +61,15 @@
     </div>
     <div class="row">
         <div class="form-group col-4">
-            <label>Du</label>
+                <label>Du</label>
+                <input type="date" class="form-control" th:field="*{dateDepart}" required>
+        </div>
 
-            <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                <input type="text"  class="form-control datetimepicker-input" data-target="#reservationdate"
-                       th:field="*{dateDepart}">
-                <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                </div>
-            </div>
-        </div>
         <div class="form-group col-4">
-            <label>Au:</label>
-            <div class="input-group date" id="reservationdate1" data-target-input="nearest">
-                <input type="text"  class="form-control datetimepicker-input" data-target="#reservationdate"
-                       th:field="*{dateArrivee}">
-                <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                </div>
-            </div>
+            <label>Au</label>
+            <input type="date" class="form-control" th:field="*{dateArrivee}" required>
         </div>
+
         <div class="form-group col-4">
             <label >Lieu de départ</label>
             <div class="input-group mb-3">

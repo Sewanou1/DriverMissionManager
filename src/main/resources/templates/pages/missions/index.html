@@ -34,7 +34,7 @@
                 <tbody>
                 <tr th:each="mission, iterStat : ${missions}">
                     <td th:text="${iterStat.index + 1}"></td>
-                    <td th:text="${mission.marque}"></td>
+                    <td th:text="${mission.libelle}"></td>
                     <td th:text="${mission.conducteur}"></td>
                     <td th:text="${mission.voiture}"></td>
                     <td th:text="${mission.dateDepart}"></td>
