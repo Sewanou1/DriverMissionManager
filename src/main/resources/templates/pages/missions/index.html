@@ -11,10 +11,17 @@
 <div layout:fragment="content">
     <div class="card">
         <div class="card-header d-flex justify-content-between">
-            <h3 class="card-title mr-auto p-2">Titre</h3>
+            <h3 class="card-title mr-auto p-2" th:text="${title}">Titre</h3>
             <a th:href="@{/missions/create}" class="btn btn-primary p-2">
                 <i class="fas fa-plus mr-1"></i>Ajouter
             </a>
+        </div>
+
+        <div th:if="${successMessage}" class="alert alert-success alert-dismissible fade show" role="alert">
+            <p th:text="${successMessage}"></p>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -35,8 +42,8 @@
                 <tr th:each="mission, iterStat : ${missions}">
                     <td th:text="${iterStat.index + 1}"></td>
                     <td th:text="${mission.libelle}"></td>
-                    <td th:text="${mission.conducteur}"></td>
-                    <td th:text="${mission.voiture}"></td>
+                    <td th:text="${mission.conducteur.nom + ' ' + mission.conducteur.prenom}"></td>
+                    <td th:text="${mission.vehicule.marque + ' -' + mission.vehicule.modele+ ' -' + mission.vehicule.annee}"></td>
                     <td th:text="${mission.dateDepart}"></td>
                     <td th:text="${mission.dateArrivee}"></td>
                     <td th:text="${mission.lieuDepart}"></td>
