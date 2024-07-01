@@ -52,8 +52,21 @@ public class MissionController {
         return "pages/missions/create";
     }
 
+
+
     @PostMapping("/missions/save")
     public String saveMission(@ModelAttribute Mission mission, RedirectAttributes redirectAttributes) {
+        /*boolean conducteurEnMission = missionService.isConducteurEnMission(mission.getConducteur().getIdConducteur());
+        if (conducteurEnMission) {
+            redirectAttributes.addFlashAttribute("errorMessage", "Ce conducteur a déjà une mission en cours !");
+            return "redirect:/missions/create";
+        }*/
+
+        if (mission.getDateDepart().isAfter(mission.getDateArrivee())) {
+            redirectAttributes.addFlashAttribute("errorMessage", "La date de départ ne peut pas être après la date d'arrivée !");
+            return "redirect:/missions/create";
+        }
+
         missionService.saveMission(mission);
         redirectAttributes.addFlashAttribute("successMessage", "La mission a été enregistrée avec succès !");
         return "redirect:/missions";

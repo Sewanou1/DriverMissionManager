@@ -13,4 +13,5 @@ public interface MissionService {
     List<Vehicule> getVehiculeAll();
     void saveMission(Mission mission);
     void deleteMission(Long id);
+    //boolean isConducteurEnMission(Long conducteurId);
 }

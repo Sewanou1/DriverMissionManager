@@ -10,6 +10,7 @@ import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -52,4 +53,9 @@ public class MissionServiceImple implements MissionService{
     public void deleteMission(Long id){
         missionRepository.deleteById(id);
     }
+
+   /* public boolean isConducteurEnMission(Long conducteurId) {
+        LocalDate currentDate = LocalDate.now();
+        return missionRepository.existsByConducteur_IdAndDateArriveeAfter(conducteurId, currentDate);
+    }*/
 }
