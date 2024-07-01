@@ -50,7 +50,8 @@
                     <td class="text-center py-0 align-middle">
                         <div class="btn-group btn-group-sm">
                             <a href="" class="btn btn-primary mr-2 ml-2"><i class="fas fa-pen"></i></a>
-                            <form method="POST" action="" class="delete">
+                            <form th:action="@{/missions/delete/{id}(id=${mission.id})}" method="post" enctype="multipart/form-data">
+                                <input type="hidden" name="_method" value="delete"/>
                                 <button class="btn btn-danger ">
                                     <i class="fas fa-trash"></i>
                                 </button>

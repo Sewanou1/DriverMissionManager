@@ -12,4 +12,5 @@ public interface MissionService {
     List<Conducteur> getConducteurAll();
     List<Vehicule> getVehiculeAll();
     void saveMission(Mission mission);
+    void deleteMission(Long id);
 }

@@ -48,4 +48,8 @@ public class MissionServiceImple implements MissionService{
     public void saveMission(Mission mission) {
         missionRepository.save(mission);
     }
+
+    public void deleteMission(Long id){
+        missionRepository.deleteById(id);
+    }
 }

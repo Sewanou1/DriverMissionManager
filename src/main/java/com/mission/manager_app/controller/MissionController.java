@@ -58,4 +58,14 @@ public class MissionController {
         redirectAttributes.addFlashAttribute("successMessage", "La mission a été enregistrée avec succès !");
         return "redirect:/missions";
     }
+
+
+    @DeleteMapping("/missions/delete/{id}")
+    public String deleteMission(@PathVariable("id") Long id, @RequestParam(value = "_method", required = false) String method, RedirectAttributes redirectAttributes) {
+        if ("delete".equalsIgnoreCase(method)) {
+            missionService.deleteMission(id);
+            redirectAttributes.addFlashAttribute("successMessage", "Mission supprimée avec succès!");
+        }
+        return "redirect:/missions";
+    }
 }
