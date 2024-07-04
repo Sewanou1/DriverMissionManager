@@ -1,13 +1,15 @@
 package com.mission.manager_app.controller;
 
 import com.mission.manager_app.model.Conducteur;
+import com.mission.manager_app.model.Mission;
 import com.mission.manager_app.service.ConducteurService;
+import com.mission.manager_app.service.MissionService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -15,6 +17,9 @@ import java.util.List;
 public class ConducteurController {
     @Autowired
     private ConducteurService conducteurService;
+
+    @Autowired
+    private MissionService missionService;
 
     @GetMapping("/conducteur")
     public String welcome(Model model, HttpServletRequest request){
@@ -28,27 +33,36 @@ public class ConducteurController {
 
     @GetMapping("/create")
     public String create(Model model) {
+        Conducteur conducteur= new Conducteur();
+        model.addAttribute("conducteur",conducteur);
         String title= "Nouveau conducteur";
         model.addAttribute("title",title);
         return "pages/conducteurs/create";
     }
 
-   /* @GetMapping("/edit/{id}")
-    public String editConducteur(@PathVariable Long id, Model model) {
-        Conducteur driver = conducteurService.findById(id);
-        model.addAttribute("driver", driver);
-        return "conducteurs/edit";
+
+    @PostMapping("/conducteur/save")
+    public String saveConducteur(@ModelAttribute Conducteur conducteur, RedirectAttributes redirectAttributes) {
+        conducteurService.saveConducteur(conducteur);
+        redirectAttributes.addFlashAttribute("successMessage", "Le conducteur a été enregistré avec succès !");
+        return "redirect:/conducteur";
     }
 
-    @PostMapping("/update/{id}")
-    public String updateConducteur(@PathVariable Long id, @ModelAttribute Conducteur driver) {
-        conducteurService.updateDriver(id, driver);
-        return "redirect:/conducteurs";
+
+    @DeleteMapping("/conducteur/delete/{id}")
+    public String deleteConducteur(@PathVariable("id") Long id, @RequestParam(value = "_method", required = false) String method, RedirectAttributes redirectAttributes) {
+        if ("delete".equalsIgnoreCase(method)) {
+            try {
+                conducteurService.deleteConducteur(id);
+                redirectAttributes.addFlashAttribute("successMessage", "Mission supprimée avec succès!");
+            } catch (IllegalStateException e) {
+                redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
+            }
+
+
+        }
+        return "redirect:/conducteur";
     }
 
-    @DeleteMapping("/delete/{id}")
-    public String deleteConducteur(@PathVariable Long id) {
-        conducteurService.deleteDriver(id);
-        return "redirect:/conducteurs";
-    }*/
+
 }

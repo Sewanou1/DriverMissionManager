@@ -40,8 +40,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card card-primary">
-                    <form id="quickForm" method="post" action=""
-                          enctype="multipart/form-data">
+                        <form id="quickForm" th:action="@{/vehicules/save}"
+                              method="post" th:object="${vehicule}" enctype="multipart/form-data">
+
                         <div class="card-body">
                             <span th:replace="pages/vehicules/form :: form"></span>
                         </div>

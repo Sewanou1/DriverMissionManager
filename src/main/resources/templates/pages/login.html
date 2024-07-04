@@ -18,6 +18,14 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <!-- /.login-logo -->
+
+    <div th:if="${errorMessage}" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <p th:text="${errorMessage}"></p>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
     <div class="card card-outline card-primary">
         <div class="card-header text-center">
             <a href="" class="h1"><b>Mission Manager</b></a>
@@ -25,9 +33,9 @@
         <div class="card-body">
             <p class="login-box-msg">Connectez-vous !!!</p>
 
-            <form th:action="@{/}" >
+            <form th:action="@{/login}" method="post" >
                 <div class="input-group mb-3">
-                    <input type="email" class="form-control" placeholder="Email">
+                    <input type="email" class="form-control" name="email" placeholder="Email">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-envelope"></span>
@@ -35,7 +43,7 @@
                     </div>
                 </div>
                 <div class="input-group mb-3">
-                    <input type="password" class="form-control" placeholder="Password">
+                    <input type="password" class="form-control" name="password" placeholder="Password">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-lock"></span>

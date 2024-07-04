@@ -8,48 +8,42 @@
 <div th:fragment="form">
     <div class="row">
         <div class="form-group col-6">
-            <label for="intitule">Nom du conducteur</label>
+            <label >Nom du conducteur</label>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-user"></i></span>
                 </div>
-                <input required type="text" name="nom" class="form-control" id=""
-                       placeholder="Ex : TOTO" value = "" >
+                <input required type="text"  th:field="*{nom}" class="form-control"
+                       placeholder="Ex : TOTO"  >
             </div>
         </div>
 
         <div class="form-group col-6">
-            <label for="intitule">Prénom du conducteur</label>
+            <label >Prénom du conducteur</label>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-user"></i></span>
                 </div>
-                <input required type="text" name="prenom" class="form-control" id=""
-                       placeholder="Ex : Toto" value = "" >
+                <input required type="text" th:field="*{prenom}" class="form-control"
+                       placeholder="Ex : Toto"  >
             </div>
         </div>
     </div>
     <div class="row">
+
         <div class="form-group col-6">
-            <label>Date de naissance:</label>
-            <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                <input type="text" name="dateNaissance" class="form-control datetimepicker-input" data-target="#reservationdate"
-                       value = "" >
-                <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                </div>
-            </div>
+            <label>Date de naissance</label>
+            <input type="date" class="form-control" th:field="*{dateNaissance}" required>
         </div>
 
         <div class="form-group col-6">
-            <label for="intitule">Numéro du permis</label>
+            <label >Numéro du permis</label>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-user"></i></span>
                 </div>
-                <input required type="text" name="numPermis" class="form-control" id=""
-                       placeholder="Ex : XXX"
-                       value = "" >
+                <input required type="text" th:field="*{numeroPermis}" class="form-control"
+                       placeholder="Ex : XXX" >
             </div>
         </div>
     </div>

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Data
@@ -54,8 +55,13 @@ public class MissionServiceImple implements MissionService{
         missionRepository.deleteById(id);
     }
 
-   /* public boolean isConducteurEnMission(Long conducteurId) {
-        LocalDate currentDate = LocalDate.now();
-        return missionRepository.existsByConducteur_IdAndDateArriveeAfter(conducteurId, currentDate);
-    }*/
+
+    public boolean hasConducteurMissionEnCours(Long idConducteur) {
+        List<Mission> missions = missionRepository.findByConducteurIdConducteur(idConducteur);
+        LocalDate now = LocalDate.now();
+        return missions.stream()
+                .anyMatch(mission ->
+                        (mission.getDateArrivee().isAfter(now) || mission.getDateArrivee().isEqual(now))
+                );
+    }
 }

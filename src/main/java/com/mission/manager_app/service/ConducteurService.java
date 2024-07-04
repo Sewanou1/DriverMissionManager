@@ -8,5 +8,8 @@ public interface ConducteurService {
     Conducteur getById(Long idConducteur);
     List<Conducteur> getAll();
     Long nbreConducteur();
+    void saveConducteur(Conducteur conducteur);
+    void deleteConducteur(Long idConducteur);
+    boolean conducteurEnMission(Long idConducteur);
 
 }

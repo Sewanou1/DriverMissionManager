@@ -8,4 +8,8 @@ import java.util.List;
 public interface VehiculeService {
     Long nbreVehicule();
     List<Vehicule> getAll();
+    void saveVehicule(Vehicule vehicule );
+    void deleteVehicule(Long id);
+    boolean vehiculeEnMission(Long id);
+   // boolean vehiculeEnMission(Long id);
 }

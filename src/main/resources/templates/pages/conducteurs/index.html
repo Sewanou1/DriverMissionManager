@@ -15,6 +15,21 @@
                 <i class="fas fa-plus mr-1"></i>Ajouter
             </a>
         </div>
+
+        <div th:if="${successMessage}" class="alert alert-success alert-dismissible fade show" role="alert">
+            <p th:text="${successMessage}"></p>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <div th:if="${errorMessage}" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <p th:text="${errorMessage}"></p>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
         <!-- /.card-header -->
         <div class="card-body">
             <table id="example1" class="table table-bordered table-striped mb-2">
@@ -39,8 +54,8 @@
                             <a href="" class="btn btn-primary mr-2 ml-2">
                                 <i class="fas fa-pen"></i>
                             </a>
-                            <form method="POST" th:action="@{#}" class="delete">
-                                <input type="hidden" name="_method" value="DELETE" />
+                                <form th:action="@{/conducteur/delete/{id}(id=${conducteur.idConducteur})}" method="post" enctype="multipart/form-data">
+                                    <input type="hidden" name="_method" value="delete"/>
                                 <button type="submit" class="btn btn-danger">
                                     <i class="fas fa-trash"></i>
                                 </button>

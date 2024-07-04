@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.persistence.Table;
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Set;
 
@@ -24,8 +25,7 @@ public class Conducteur {
     private String prenom;
 
     @Column(name = "dateNaissance", nullable = false)
-    @Temporal(TemporalType.DATE)
-    private Date dateNaissance;
+    private LocalDate dateNaissance;
 
     @Column(name = "numPermis", nullable = false, length = 50)
     private String numeroPermis;
