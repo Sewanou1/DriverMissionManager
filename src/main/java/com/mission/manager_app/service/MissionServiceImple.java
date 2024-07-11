@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @Data
@@ -47,8 +46,9 @@ public class MissionServiceImple implements MissionService{
         return conducteurRepository.findAll();
     }
 
-    public void saveMission(Mission mission) {
+    public Mission saveMission(Mission mission) {
         missionRepository.save(mission);
+        return mission;
     }
 
     public void deleteMission(Long id){
@@ -63,5 +63,14 @@ public class MissionServiceImple implements MissionService{
                 .anyMatch(mission ->
                         (mission.getDateArrivee().isAfter(now) || mission.getDateArrivee().isEqual(now))
                 );
+    }
+
+
+    public Mission getMissionById(Long id) {
+        return missionRepository.findById(id).orElse(null);
+    }
+
+    public boolean existsById(Long id) {
+        return missionRepository.existsById(id);
     }
 }

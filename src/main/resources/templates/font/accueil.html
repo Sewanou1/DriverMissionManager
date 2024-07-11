@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{font/index}">
+<head>
+    <meta charset="UTF-8">
+    <title>Mission manager</title>
+</head>
+<body>
+<main class="main"  layout:fragment="content">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section light-background">
+
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-8 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="zoom-out">
+                    <h1>Bienvenue sur <span>Mission Manager</span></h1>
+                    <p>Nous sommes une équipe dédiée à la gestion efficace des missions pour optimiser votre organisation.</p>
+                    <div class="d-flex">
+                        <a th:href="@{/login}" class="btn-get-started">Se connecter</a></div>
+                </div>
+            </div>
+        </div>
+
+    </section><!-- /Hero Section -->
+
+    <!-- Featured Services Section -->
+    <section id="featured-services" class="featured-services section">
+
+        <div class="container">
+
+            <div class="row gy-4">
+
+                <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-item position-relative">
+                        <div class="icon"><i class="bi bi-activity icon"></i></div>
+                        <h4><a href="" class="stretched-link">Planification de Missions</a></h4>
+                        <p>Organisation et planification des missions des conducteurs.</p>
+                    </div>
+                </div><!-- End Service Item -->
+
+                <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-item position-relative">
+                        <div class="icon"><i class="bi bi-bounding-box-circles icon"></i></div>
+                        <h4><a href="" class="stretched-link">Suivi en Temps Réel</a></h4>
+                        <p>Suivi du progrès des missions des conducteurs en temps réel.</p>
+                    </div>
+                </div><!-- End Service Item -->
+
+                <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-item position-relative">
+                        <div class="icon"><i class="bi bi-calendar4-week icon"></i></div>
+                        <h4><a href="" class="stretched-link">Rapports Détailés</a></h4>
+                        <p>Générez des rapports détaillés sur les missions, incluant les performances et les résultats.</p>
+                    </div>
+                </div><!-- End Service Item -->
+
+                <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-item position-relative">
+                        <div class="icon"><i class="bi bi-broadcast icon"></i></div>
+                        <h4><a href="" class="stretched-link">Notifications Automatiques</a></h4>
+                        <p>Mise à jour instantatnée des missions.</p>
+                    </div>
+                </div><!-- End Service Item -->
+
+            </div>
+
+        </div>
+
+    </section><!-- /Featured Services Section -->
+
+
+    <!-- About Section -->
+    <section id="about" class="about section light-background">
+
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+            <h2>À Propos</h2>
+            <p><span>Découvrez</span> <span class="description-title">Qui Nous Sommes</span></p>
+        </div><!-- End Section Title -->
+
+        <div class="container">
+
+            <div class="row gy-3">
+
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <img src="assets/img/toy1.jpg" alt="À Propos" class="img-fluid">
+                </div>
+
+                <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="about-content ps-0 ps-lg-3">
+                        <h3>Optimisez la gestion de vos missions avec notre application.</h3>
+                        <p class="fst-italic">
+                            Notre application vous aide à planifier, suivre et gérer efficacement toutes vos missions, simplifiant ainsi votre travail quotidien.
+                        </p>
+                        <ul>
+                            <li>
+                                <i class="bi bi-diagram-3"></i>
+                                <div>
+                                    <h4>Gestion Simplifiée</h4>
+                                    <p>Organisez et suivez toutes vos missions en un seul endroit avec une interface intuitive.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="bi bi-fullscreen-exit"></i>
+                                <div>
+                                    <h4>Suivi en Temps Réel</h4>
+                                    <p>Recevez des mises à jour instantanées et suivez le progrès de chaque mission en temps réel.</p>
+                                </div>
+                            </li>
+                        </ul>
+                        <p>
+                            Notre mission est de rendre la gestion des tâches et des missions aussi simple et efficace que possible, en fournissant des outils puissants et faciles à utiliser.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- /About Section -->
+
+    <!-- Stats Section -->
+    <section id="stats" class="stats section">
+
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="row gy-4">
+
+                <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center">
+                    <i class="bi bi-journal-check"></i>
+                    <div class="stats-item">
+                        <h3 th:text="${nbreMission}"></h3>
+                        <p>Nombre de Missions</p>
+                    </div>
+                </div><!-- End Stats Item -->
+
+                <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center">
+                    <i class="bi bi-truck"></i>
+                    <div class="stats-item">
+                        <h3 th:text="${nbreVehicule}"></h3>
+                        <p>Nombre de Véhicules</p>
+                    </div>
+                </div><!-- End Stats Item -->
+
+                <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center">
+                    <i class="bi bi-person"></i>
+                    <div class="stats-item">
+                        <h3 th:text="${nbreConducteur}"></h3>
+                        <p>Nombre de Conducteurs</p>
+                    </div>
+                </div><!-- End Stats Item -->
+
+            </div>
+
+        </div>
+
+    </section><!-- /Stats Section -->
+
+
+    <!-- Services Section -->
+    <section id="services" class="services section">
+
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+            <h2>Missions</h2>
+            <p><span>Checker vos</span> <span class="description-title">missions</span></p>
+        </div><!-- End Section Title -->
+
+        <div class="container">
+
+            <div class="row gy-4">
+
+                <div th:each="mission, stat : ${missions}" class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-item position-relative">
+                        <div class="icon">
+                            <i class="bi bi-journal-check"></i>
+                        </div>
+                        <a href="#" class="stretched-link">
+                            <h3  th:text="${mission.libelle}"></h3>
+                        </a>
+                        <h4>Conducteur</h4><p  th:text="${mission.conducteur.nom + ' ' + mission.conducteur.prenom}"></p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="d-flex mt-3">
+                <a href="#about" class="btn-get-started">Voir plus</a>
+            </div>
+        </div>
+
+    </section><!-- /Services Section -->
+
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq section light-background">
+
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+            <h2>F.A.Q</h2>
+            <p><span>Questions Fréquentes</span></p>
+        </div><!-- End Section Title -->
+
+        <div class="container">
+
+            <div class="row justify-content-center">
+
+                <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
+
+                    <div class="faq-container">
+
+                        <!-- Exemple de FAQ adaptée -->
+                        <div class="faq-item faq-active">
+                            <h3>Qu'est-ce que Mission Manager?</h3>
+                            <div class="faq-content">
+                                <p>Mission Manager est une application de gestion avancée des missions pour organiser et suivre les missions de manière efficace.</p>
+                            </div>
+                            <i class="faq-toggle bi bi-chevron-right"></i>
+                        </div><!-- End Faq item-->
+
+                        <div class="faq-item">
+                            <h3>Comment ajouter une nouvelle mission?</h3>
+                            <div class="faq-content">
+                                <p> L'ajout d'une nouvelle mission se fait pas l'administrateur du site, en se connectant en tant que admin !!</p>
+                            </div>
+                            <i class="faq-toggle bi bi-chevron-right"></i>
+                        </div><!-- End Faq item-->
+
+                        <div class="faq-item">
+                            <h3>En tant que conducteur, comment avoir une mission sur votre site?</h3>
+                            <div class="faq-content">
+                                <p>Les missions sont programmées pour les conducteur de l'entréprise. Toutefois, vous piuvez nous contactez.</p>
+                            </div>
+                            <i class="faq-toggle bi bi-chevron-right"></i>
+                        </div><!-- End Faq item-->
+
+                        <!-- Ajoutez d'autres questions et réponses FAQ ici -->
+
+                    </div>
+
+                </div><!-- End Faq Column-->
+
+            </div>
+
+        </div>
+
+    </section><!-- /Faq Section -->
+
+</main>
+</body>
+</html>

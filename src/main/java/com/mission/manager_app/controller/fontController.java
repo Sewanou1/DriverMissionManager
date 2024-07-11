@@ -38,7 +38,13 @@ public class fontController {
         model.addAttribute("nbreConducteur", nbreC != null ? nbreC : 0L);
         model.addAttribute("nbreVehicule", nbreV !=null ? nbreV : 0L);
         model.addAttribute("nbreMission", nbreM !=null ? nbreM : 0L);
-        return "font/index";
+        return "font/accueil";
+    }
+
+
+    @GetMapping("/contact")
+    public String contact(Model model, HttpServletRequest request){
+        return "font/contact";
     }
 
 }

@@ -60,7 +60,7 @@ public class MissionController {
             redirectAttributes.addFlashAttribute("errorMessage", "La date de départ ne peut pas être après la date d'arrivée !");
             //return "redirect:/missions/create";
             //.setAttribute("missionTemp", mission);
-            return "redirect-back";
+            return "redirect:/missions/create";
         }
 
         if (missionService.hasConducteurMissionEnCours(mission.getConducteur().getIdConducteur())) {

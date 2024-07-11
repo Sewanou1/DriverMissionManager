@@ -11,9 +11,11 @@ public interface MissionService {
     List<Mission> getAll();
     List<Conducteur> getConducteurAll();
     List<Vehicule> getVehiculeAll();
-    void saveMission(Mission mission);
+    Mission saveMission(Mission mission);
     void deleteMission(Long id);
     //Boolean isConducteurEnMission;
 
     boolean hasConducteurMissionEnCours(Long idConducteur);
+    Mission getMissionById(Long id);
+    boolean existsById(Long id);
 }
